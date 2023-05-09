@@ -6,7 +6,7 @@ public class CheckPrime {
         int countOfPrime = 0;
         int number = 2;
         System.out.println("20 prime numbers below here! ");
-        while (countOfPrime <= 20) {
+        while (countOfPrime < 5) {
             int count = 0;
             for (int i = 1; i <= number; i++) {
                 if (number % i == 0) {
