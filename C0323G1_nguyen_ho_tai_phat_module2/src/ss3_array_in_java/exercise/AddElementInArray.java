@@ -11,10 +11,10 @@ public class AddElementInArray {
         int number = sc.nextInt();
         System.out.println("Enter index u would like to add " + number + " in the array");
         int index = sc.nextInt();
-        array[index] = number;
-        for (int i = index; i < array.length - 2; i++) {
-            array[i + 1] = array[i + 2];
+        for (int i = array.length; i > index+1; i--) {
+            array[i-1] = array[i-2];
         }
+        array[index] = number;
         System.out.println(Arrays.toString(array));
     }
 }

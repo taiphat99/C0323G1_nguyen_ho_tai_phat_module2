@@ -19,15 +19,9 @@ public class SumOfElementsInADiagonalLine {
         System.out.println(Arrays.deepToString(array));
 
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (i == j || i + j == 2) {
-                    sum += array[i][j];
-                    if (i == j && i + j == 2) {
-                        sum += array[i][j];
-                    }
+                    sum += array[i][2-i];
+                    sum += array[i][i];
                 }
-            }
-        }
         System.out.println("Sum = " + sum);
     }
 }

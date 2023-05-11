@@ -22,11 +22,7 @@ public class SumOfElementsOfAColumn {
         int column = sc.nextInt();
         int sum = 0;
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-               if(j == column){
-                   sum += array[i][j];
-               }
-            }
+            sum += array[i][column];
         }
         System.out.println("Sum = " + sum);
     }
