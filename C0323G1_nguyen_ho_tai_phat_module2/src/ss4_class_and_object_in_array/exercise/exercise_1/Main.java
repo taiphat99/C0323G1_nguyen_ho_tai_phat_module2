@@ -1,8 +1,8 @@
-package ss4_class_and_object_in_array.exercise;
+package ss4_class_and_object_in_array.exercise.exercise_1;
 
 import java.util.Scanner;
 
-public class TestQuadraticEquation {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a: ");

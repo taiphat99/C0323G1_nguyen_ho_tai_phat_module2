@@ -1,4 +1,4 @@
-package ss4_class_and_object_in_array.exercise;
+package ss4_class_and_object_in_array.exercise.exercise_1;
 
 public class QuadraticEquation {
     private double a;
