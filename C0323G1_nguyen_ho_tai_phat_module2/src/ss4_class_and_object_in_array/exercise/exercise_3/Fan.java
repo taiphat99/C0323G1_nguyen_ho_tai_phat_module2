@@ -31,7 +31,7 @@ public class Fan {
         return this.speed;
     }
 
-    public boolean isOn() {
+    public boolean getOn() {
         return this.on;
     }
 
