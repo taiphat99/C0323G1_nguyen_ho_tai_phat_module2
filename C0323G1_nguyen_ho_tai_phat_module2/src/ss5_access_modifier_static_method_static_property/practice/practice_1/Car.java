@@ -1,5 +1,7 @@
 package ss5_access_modifier_static_method_static_property.practice.practice_1;
 
+import ss4_class_and_object_in_array.exercise.exercise_3.Fan;
+
 public class Car {
     private String name;
     private String engine;

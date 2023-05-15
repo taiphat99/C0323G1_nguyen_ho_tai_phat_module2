@@ -1,9 +1,9 @@
 package ss5_access_modifier_static_method_static_property.exercise.exercise_1;
 
 public class Circle {
-    public static final double PI = 3.14;
-    double radius = 2;
-    String color = "red";
+    private static final double PI = 3.14;
+    private double radius = 2;
+    private String color = "red";
 
     public Circle() {
     }

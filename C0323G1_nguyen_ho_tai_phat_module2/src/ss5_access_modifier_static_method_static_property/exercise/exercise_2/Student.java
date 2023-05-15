@@ -12,13 +12,6 @@ public class Student {
     public void setClasses(String classes){
         this.classes = classes;
     }
-    public String getName(){
-        return this.name;
-    }
-    public String getClasses(){
-        return this.classes;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
