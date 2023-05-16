@@ -1,8 +1,6 @@
 package ss7_abstract_class_and_interface.exercise.exercise_2;
 
-import ss7_abstract_class_and_interface.exercise.exercise_1.Resizeable;
-
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape {
     private double radius;
     private final double PI = 3.14;
 
@@ -40,9 +38,4 @@ public class Circle extends Shape implements Resizeable {
         return "A Circle with radius = " + this.radius + ", which is a subclass of " + super.toString();
     }
 
-
-    @Override
-    public void resize(double percent) {
-        this.radius = ((100+percent)/100)*radius;
-    }
 }

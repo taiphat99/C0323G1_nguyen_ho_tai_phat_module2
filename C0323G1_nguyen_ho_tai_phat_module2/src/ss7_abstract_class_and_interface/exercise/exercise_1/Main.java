@@ -25,8 +25,8 @@ public class Main {
 
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle(2);
-        shapes[1] = new Rectangle(4, 4);
-        shapes[2] = new Square(4);
+        shapes[1] = new Rectangle(1,2 );
+        shapes[2] = new Square(2);
 
         System.out.println("Input percent");
         Scanner scanner = new Scanner(System.in);
@@ -34,18 +34,24 @@ public class Main {
 
         for (Shape a : shapes) {
             if (a instanceof Circle) {
+                System.out.println("Area of Circle before: ");
                 System.out.println((((Circle) a).getArea()));
                 ((Circle) a).resize(percent);
+                System.out.println("Area of Circle after: ");
                 System.out.println((((Circle) a).getArea()));
 
             } else if (a instanceof Square) {
+                System.out.println("Area of Square before: ");
                 System.out.println(((Square) a).getArea());
                 ((Square) a).resize(percent);
+                System.out.println("Area of Square after: ");
                 System.out.println(((Square) a).getArea());
 
             } else if (a instanceof Rectangle) {
+                System.out.println("Area of Rectangle before: ");
                 System.out.println(((Rectangle) a).getArea());
                 ((Rectangle) a).resize(percent);
+                System.out.println("Area of Rectangle after: ");
                 System.out.println(((Rectangle) a).getArea());
 
             }

@@ -1,8 +1,7 @@
 package ss7_abstract_class_and_interface.exercise.exercise_2;
 
-import ss7_abstract_class_and_interface.exercise.exercise_1.Resizeable;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape {
     private double width;
     private double length;
 
@@ -49,13 +48,5 @@ public class Rectangle extends Shape implements Resizeable {
     @Override
     public String toString() {
         return "A Rectangle with = " + this.width + " length = " + this.length + ", which is a subclass of " + super.toString();
-    }
-
-
-    @Override
-    public void resize(double percent) {
-        setWidth(((100+percent)/100)*getWidth());
-        setLength(((100+percent)/100)*getLength());
-
     }
 }
