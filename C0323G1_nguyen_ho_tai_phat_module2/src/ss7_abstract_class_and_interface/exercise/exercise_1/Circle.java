@@ -2,7 +2,7 @@ package ss7_abstract_class_and_interface.exercise.exercise_1;
 
 public class Circle extends Shape implements Resizeable {
     private double radius;
-    private final double PI = 3.14;
+    public final double PI = 3.14;
 
     public Circle() {
         this.radius = 1;
