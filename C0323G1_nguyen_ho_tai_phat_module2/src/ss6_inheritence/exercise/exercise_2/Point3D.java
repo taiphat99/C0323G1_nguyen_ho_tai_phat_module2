@@ -2,7 +2,6 @@ package ss6_inheritence.exercise.exercise_2;
 
 public class Point3D extends Point2D {
     private float z;
-    float[] array = new float[3];
     public Point3D(){
 
     }
@@ -20,6 +19,7 @@ public class Point3D extends Point2D {
     }
 
     public float[] getXYZ(){
+        float[] array = new float[3];
         array[0]=super.getY();
         array[1]=super.getX();
         array[2]=z;

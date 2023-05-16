@@ -1,8 +1,8 @@
-package ss6_inheritence.practice;
+package ss7_abstract_class_and_interface.exercise.exercise_1;
 
 public class Square extends Rectangle {
     public Square(double side) {
-        super(side, side);
+        super(side,side);
     }
 
     public Square(double side, String color, boolean filled) {
@@ -33,5 +33,9 @@ public class Square extends Rectangle {
         return "A Square with side = " + getSide() + ", which is a subclass of " + super.toString();
     }
 
+    @Override
+    public void resize(double percent) {
+        setSide(((100+percent)/100)*getSide());
 
+    }
 }

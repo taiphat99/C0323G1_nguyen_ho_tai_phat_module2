@@ -1,4 +1,4 @@
-package ss6_inheritence.practice;
+package ss7_abstract_class_and_interface.exercise.exercise_2;
 
 public class Shape {
     private String color;

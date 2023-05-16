@@ -1,6 +1,6 @@
-package ss6_inheritence.practice;
+package ss7_abstract_class_and_interface.exercise.exercise_1;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Resizeable{
     private double width;
     private double length;
 
@@ -50,4 +50,10 @@ public class Rectangle extends Shape {
     }
 
 
+    @Override
+    public void resize(double percent) {
+        setWidth(((100+percent)/100)*getWidth());
+        setLength(((100+percent)/100)*getLength());
+
+    }
 }
