@@ -3,7 +3,6 @@ package ss6_inheritence.exercise.exercise_3;
 public class Point {
     private float x;
     private float y;
-    float [] array = new float[2];
 
     public Point(float x, float y) {
         this.x = x;
@@ -31,6 +30,7 @@ public class Point {
     }
 
     public float[] getXY(){
+        float [] array = new float[2];
         array[0]= x;
         array[1]=y;
         return array;

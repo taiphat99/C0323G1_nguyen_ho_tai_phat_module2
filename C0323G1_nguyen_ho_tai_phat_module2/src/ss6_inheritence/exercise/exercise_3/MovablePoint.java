@@ -3,7 +3,6 @@ package ss6_inheritence.exercise.exercise_3;
 public class MovablePoint extends Point {
     private float xSpeed;
     private float ySpeed;
-    float[] array = new float[2];
 
     public MovablePoint() {
 
@@ -42,6 +41,7 @@ public class MovablePoint extends Point {
     }
 
     public float[] getSpeed() {
+        float[] array = new float[2];
         array[0] = xSpeed;
         array[1] = ySpeed;
         return array;
