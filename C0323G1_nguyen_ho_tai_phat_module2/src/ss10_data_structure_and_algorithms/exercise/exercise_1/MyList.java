@@ -91,9 +91,7 @@ public class MyList<E> {
 
             }
         }
-        return "MyList {" +
-                "elements = [" + arrayElement +
-                "] }";
+        return "[" + arrayElement + "]";
     }
 
 }
