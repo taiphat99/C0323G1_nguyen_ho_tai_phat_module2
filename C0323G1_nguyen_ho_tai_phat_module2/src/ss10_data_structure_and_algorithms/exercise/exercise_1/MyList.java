@@ -19,14 +19,9 @@ public class MyList<E> {
     public void add(int index, E element) {
         if (size == elements.length) {
             ensureCapa();
-            for (int i = elements.length - 1; i > index; i--) {
-                elements[i] = elements[i - 1];
-            }
-        } else {
-
-            for (int i = elements.length - 1; i > index; i--) {
-                elements[i] = elements[i - 1];
-            }
+        }
+        for (int i = elements.length - 1; i > index; i--) {
+            elements[i] = elements[i - 1];
         }
         elements[index] = element;
         size++;
