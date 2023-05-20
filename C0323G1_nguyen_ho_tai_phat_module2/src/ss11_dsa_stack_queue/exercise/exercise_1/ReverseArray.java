@@ -1,10 +1,9 @@
 package ss11_dsa_stack_queue.exercise.exercise_1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class Main {
+public class ReverseArray {
     public static void main(String[] args) {
         int[] numberArray = {1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(numberArray));

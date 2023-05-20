@@ -1,8 +1,8 @@
-package ss11_dsa_stack_queue.exercise.exercise_2;
+package ss11_dsa_stack_queue.exercise.exercise_3;
 
 import java.util.Stack;
 
-public class Main {
+public class ConvertDecimalToBinary {
     public static void main(String[] args) {
         System.out.println(converter(30));
         System.out.println(converter(41));
