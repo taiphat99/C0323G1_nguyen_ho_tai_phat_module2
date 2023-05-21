@@ -17,7 +17,7 @@ public class Student extends Person {
                 ", Họ và tên: " + super.getName() +
                 ", Ngày sinh: " + super.getDateOfBirth() +
                 ", Giới tính: " + (super.isGender()? "Nam": "Nữ") +
-                ", Lớp: " + classes + '\'' +
+                ", Lớp: " + classes +
                 ", Điểm: " + grade ;
     }
 }
