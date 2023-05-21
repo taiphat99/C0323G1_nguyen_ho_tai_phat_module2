@@ -4,9 +4,6 @@ package mvc_exercise1.model;
 public class Student extends Person {
     private String classes;
     private double grade;
-    public Student (){
-        super();
-    }
     public Student(String id, String name, String dateOfBirth, boolean gender, String classes, double grade){
         super(id,name,dateOfBirth,gender);
         this.classes = classes;
@@ -15,7 +12,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return " Thông tin học viên: " +
+        return "Thông tin học viên: " +
                 "ID: "+ super.getId() +
                 ", Họ và tên: " + super.getName() +
                 ", Ngày sinh: " + super.getDateOfBirth() +

@@ -7,9 +7,12 @@ public class Person {
     private String name;
     private String dateOfBirth;
     private boolean gender;
-    public Person() {
-    }
-    public Person(String id, String name, String dateOfBirt, boolean gender) {
+
+    public Person(String id, String name, String dateOfBirth, boolean gender) {
+        this.id = id;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
     }
 
     public String getId() {

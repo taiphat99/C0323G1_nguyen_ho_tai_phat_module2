@@ -1,5 +1,6 @@
 package mvc_exercise1.service;
 
+import mvc_exercise1.model.Person;
 import mvc_exercise1.model.Student;
 import mvc_exercise1.model.Teacher;
 import mvc_exercise1.repository.Repository;
@@ -19,17 +20,11 @@ public class Service implements IService {
 
     @Override
     public void display() {
-    Student[] studentList = (Student[]) repository.getStudentList();
-    Teacher[] teacherList = (Teacher[]) repository.getTeacherList();
+    Person[] list = repository.getList();
 
-        for (Teacher teacher: teacherList) {
-            if(teacher != null){
-                System.out.println(teacher);
-            }
-        }
-        for (Student student:studentList) {
-            if(student != null){
-                System.out.println(student);
+        for (Person person:list) {
+            if(person != null){
+                System.out.println(person);
             }
         }
     }
