@@ -40,6 +40,11 @@ public class Repository implements IRepository {
 
     @Override
     public Person getById(String id) {
+        for (Person person:personList) {
+            if(person.getId().equals(id)){
+                return person;
+            }
+        }
         return null;
     }
 

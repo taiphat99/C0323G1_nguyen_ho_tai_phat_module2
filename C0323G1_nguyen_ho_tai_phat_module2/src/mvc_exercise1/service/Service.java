@@ -48,7 +48,7 @@ public class Service implements IService {
         System.out.println("Vui lòng nhập lớp");
         String classes = sc.nextLine();
         System.out.println("Vui lòng nhập điểm");
-        double grade = Double.parseDouble(sc.nextLine());
+        float grade = Float.parseFloat(sc.nextLine());
         Person person = new Student(id, name, dateOfBirth, gender, classes, grade);
         repository.addPerson(person);
         display();
@@ -63,6 +63,7 @@ public class Service implements IService {
         String dateOfBirth = sc.nextLine();
         System.out.println("Vui lòng nhập giới tính (1:Nam 2:Nữ)");
         int genderOption = sc.nextInt();
+
         boolean gender;
         if (genderOption == 1) {
             gender = true;
@@ -80,6 +81,7 @@ public class Service implements IService {
 
     @Override
     public void delete() {
+        System.out.println("Vui lòng nhập id bạn muốn xoá");
 
     }
 

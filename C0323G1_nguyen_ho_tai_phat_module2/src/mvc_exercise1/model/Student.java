@@ -3,8 +3,8 @@ package mvc_exercise1.model;
 
 public class Student extends Person {
     private String classes;
-    private double grade;
-    public Student(String id, String name, String dateOfBirth, boolean gender, String classes, double grade){
+    private float grade;
+    public Student(String id, String name, String dateOfBirth, boolean gender, String classes, float grade){
         super(id,name,dateOfBirth,gender);
         this.classes = classes;
         this.grade = grade;
