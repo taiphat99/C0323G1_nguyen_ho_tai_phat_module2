@@ -42,9 +42,11 @@ public class Controller {
                     break;
                 case 5:
                     //search
+                    service.searchProduct();
                     break;
                 case 6:
                     //order
+                    service.sortProduct();
                     break;
                 case 7:
                     System.out.println("See you again =))");

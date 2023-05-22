@@ -109,4 +109,31 @@ public class Service implements IService {
             }
         }
     }
+
+    @Override
+    public void searchProduct() {
+        System.out.println("Vui lòng nhập tên sản phẩm bạn muốn tìm: ");
+        String findingName = sc.nextLine();
+        List<Product> newList = repository.searchByName(findingName);
+        for (Product p:newList) {
+            System.out.println(p);
+        }
+    }
+
+    @Override
+    public void sortProduct() {
+        System.out.println("Vui lòng chọn: \n" +
+                "1. Giá tăng dần \n" +
+                "2. Giá giảm dần ");
+        int sortOption = Integer.parseInt(sc.nextLine());
+        switch(sortOption){
+            case 1:
+                repository.sortUp();
+                break;
+            case 2:
+                repository.sortDown();
+                break;
+        }
+    }
+
 }

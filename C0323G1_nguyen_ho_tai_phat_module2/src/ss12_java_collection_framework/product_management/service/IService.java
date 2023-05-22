@@ -8,4 +8,8 @@ public interface IService {
     void editProduct();
 
     void displayProduct();
+
+    void searchProduct();
+
+    void sortProduct();
 }

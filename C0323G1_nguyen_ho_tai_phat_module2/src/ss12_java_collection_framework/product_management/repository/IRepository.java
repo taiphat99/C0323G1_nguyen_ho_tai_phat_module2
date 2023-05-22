@@ -12,4 +12,10 @@ public interface IRepository {
     void deleteProduct(Product product);
 
     Product getById(String id);
+
+    List <Product> searchByName(String name);
+
+    void sortUp();
+
+    void sortDown();
 }
