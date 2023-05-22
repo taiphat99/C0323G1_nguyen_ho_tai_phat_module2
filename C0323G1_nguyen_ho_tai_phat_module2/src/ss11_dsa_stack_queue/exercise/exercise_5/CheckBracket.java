@@ -15,17 +15,16 @@ public class CheckBracket {
     }
 
     public static boolean checkBracket(String str) {
-        Stack<String> firstStack = new Stack<>();
-        Stack<String> secondStack = new Stack<>();
-        String[] array = str.split("");
-        for (String i : array) {
-            if (i.equals("(")) {
-                firstStack.push(i);
-            }
-            if (i.equals(")")) {
-                secondStack.push(i);
+        Stack<Character> bracketStack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '(') {
+                bracketStack.push(str.charAt(i));
+            } else if (str.charAt(i) == ')' && bracketStack.isEmpty()) {
+                return false;
+            } else if (str.charAt(i) == ')') {
+                bracketStack.pop();
             }
         }
-        return firstStack.size() == secondStack.size();
+        return bracketStack.isEmpty();
     }
 }
