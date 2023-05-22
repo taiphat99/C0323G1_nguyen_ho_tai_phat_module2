@@ -1,7 +1,7 @@
 package mvc_exercise1.controller;
 
-import mvc_exercise1.service.Service;
-import mvc_exercise1.service.impl.IService;
+import mvc_exercise1.service.impl.Service;
+import mvc_exercise1.service.IService;
 
 import java.util.Scanner;
 
