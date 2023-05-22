@@ -1,6 +1,7 @@
 package mvc_exercise1.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Person {
     private String id;
@@ -47,4 +48,16 @@ public class Person {
         this.gender = gender;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id.equals(person.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

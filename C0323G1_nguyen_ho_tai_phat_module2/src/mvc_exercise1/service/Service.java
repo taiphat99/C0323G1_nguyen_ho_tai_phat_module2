@@ -31,23 +31,23 @@ public class Service implements IService {
     }
 
     public void addStudent() {
-        System.out.println("Vui lòng nhập ID: ");
+        System.out.print("Vui lòng nhập ID: ");
         String id = sc.nextLine();
-        System.out.println("Vui lòng nhập họ và tên:");
+        System.out.print("Vui lòng nhập họ và tên: ");
         String name = sc.nextLine();
-        System.out.println("Vui lòng nhập ngày tháng năm sinh:");
+        System.out.print("Vui lòng nhập ngày tháng năm sinh: ");
         String dateOfBirth = sc.nextLine();
-        System.out.println("Vui lòng nhập giới tính (1:Nam 2:Nữ)");
-        int genderOption = sc.nextInt();
+        System.out.print("Vui lòng nhập giới tính (1:Nam 2:Nữ)");
+        int genderOption = Integer.parseInt(sc.nextLine());
         boolean gender;
         if (genderOption == 1) {
             gender = true;
         } else {
             gender = false;
         }
-        System.out.println("Vui lòng nhập lớp");
+        System.out.print("Vui lòng nhập lớp: ");
         String classes = sc.nextLine();
-        System.out.println("Vui lòng nhập điểm");
+        System.out.print("Vui lòng nhập điểm: ");
         float grade = Float.parseFloat(sc.nextLine());
         Person person = new Student(id, name, dateOfBirth, gender, classes, grade);
         repository.addPerson(person);
@@ -55,14 +55,14 @@ public class Service implements IService {
     }
 
     public void addTeacher() {
-        System.out.println("Vui lòng nhập ID: ");
+        System.out.print("Vui lòng nhập ID: ");
         String id = sc.nextLine();
-        System.out.println("Vui lòng nhập họ và tên:");
+        System.out.print("Vui lòng nhập họ và tên: ");
         String name = sc.nextLine();
-        System.out.println("Vui lòng nhập ngày tháng năm sinh:");
+        System.out.print("Vui lòng nhập ngày tháng năm sinh: ");
         String dateOfBirth = sc.nextLine();
-        System.out.println("Vui lòng nhập giới tính (1:Nam 2:Nữ)");
-        int genderOption = sc.nextInt();
+        System.out.print("Vui lòng nhập giới tính (1:Nam 2:Nữ)");
+        int genderOption = Integer.parseInt(sc.nextLine());
 
         boolean gender;
         if (genderOption == 1) {
@@ -81,9 +81,23 @@ public class Service implements IService {
 
     @Override
     public void delete() {
-        System.out.println("Vui lòng nhập id bạn muốn xoá");
-
+        System.out.print("Vui lòng nhập id bạn muốn xoá: ");
+        String id = sc.nextLine();
+        Person person = repository.getById(id);
+        if (person == null) {
+            System.out.println("Không tìm thấy ID " + id);
+        } else {
+            System.out.println("Bạn có chắc muốn xoá ID: " + id + " không? \n" +
+                    "1. Có \n" +
+                    "2. Không");
+            int option = Integer.parseInt(sc.nextLine());
+            if (option == 1) {
+                repository.deletePerson(person);
+                System.out.println("Xoá thành công!");
+            }
+        }
     }
+
 
     @Override
     public void display() {
