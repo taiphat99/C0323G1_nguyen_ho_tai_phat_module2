@@ -1,15 +1,15 @@
-package ss12_java_collection_framework.product_management.service.Impl;
+package ss12_java_collection_framework.product_management.service.impl;
 
 import ss12_java_collection_framework.product_management.model.Product;
-import ss12_java_collection_framework.product_management.repository.Impl.Repository;
-import ss12_java_collection_framework.product_management.service.IService;
+import ss12_java_collection_framework.product_management.repository.impl.ProductRepository;
+import ss12_java_collection_framework.product_management.service.IProductService;
 
 import java.util.List;
 import java.util.Scanner;
 
 
-public class Service implements IService {
-    private Repository repository = new Repository();
+public class ProductService implements IProductService {
+    private ProductRepository repository = new ProductRepository();
     private Scanner sc = new Scanner(System.in);
 
     @Override

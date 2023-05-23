@@ -4,7 +4,7 @@ import ss12_java_collection_framework.product_management.model.Product;
 
 import java.util.List;
 
-public interface IRepository {
+public interface IProductRepository {
     List getAll();
 
     void addProduct(Product product);

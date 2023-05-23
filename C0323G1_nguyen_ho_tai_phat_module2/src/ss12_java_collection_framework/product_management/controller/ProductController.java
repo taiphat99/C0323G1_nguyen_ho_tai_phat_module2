@@ -1,14 +1,14 @@
 package ss12_java_collection_framework.product_management.controller;
 
 
-import ss12_java_collection_framework.product_management.service.IService;
-import ss12_java_collection_framework.product_management.service.Impl.Service;
+import ss12_java_collection_framework.product_management.service.IProductService;
+import ss12_java_collection_framework.product_management.service.impl.ProductService;
 
 import java.util.Scanner;
 
-public class Controller {
+public class ProductController {
     private static Scanner sc = new Scanner(System.in);
-    private static IService service = new Service();
+    private static IProductService service = new ProductService();
     public static void menu(){
         do {
             System.out.println("----------------------------\n" +

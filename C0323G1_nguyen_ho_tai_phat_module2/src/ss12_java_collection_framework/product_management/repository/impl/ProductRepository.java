@@ -1,15 +1,15 @@
-package ss12_java_collection_framework.product_management.repository.Impl;
+package ss12_java_collection_framework.product_management.repository.impl;
 
 import ss12_java_collection_framework.product_management.model.Product;
-import ss12_java_collection_framework.product_management.repository.IRepository;
+import ss12_java_collection_framework.product_management.repository.IProductRepository;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Repository implements IRepository {
+public class ProductRepository implements IProductRepository {
 
-    static List<Product> productList = new ArrayList<>();
+    private static List<Product> productList = new ArrayList<>();
 
     static {
         Product product1 = new Product("1", "Iphone", 20000000f, 12, "Nhanh mượt mà");
@@ -20,7 +20,6 @@ public class Repository implements IRepository {
         productList.add(product2);
         productList.add(product3);
         productList.add(product4);
-
     }
 
     @Override
@@ -82,7 +81,7 @@ public class Repository implements IRepository {
         productList.sort(new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
-                if(o1.getPrice() < o2.getPrice()){
+                if (o1.getPrice() < o2.getPrice()) {
                     return 1;
                 } else {
                     return -1;
