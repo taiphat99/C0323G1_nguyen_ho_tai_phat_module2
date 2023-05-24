@@ -18,7 +18,6 @@ public class BinarySearch {
     public static int findXinArray(int[] array, int first, int last, int x) {
         Arrays.sort(array);
         int mid;
-
         if (first <= last) {
             mid = (first + last) / 2;
             if (x > array[mid]) {
