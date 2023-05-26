@@ -1,31 +1,35 @@
 package ss16_io_text_file.practice.practice_1;
 
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadFileExample {
-    public static void main(String[] args) {
-        readFileText("src/ss16_io_text_file/practice/practice_1/student.csv");
-    }
-
-    public static void readFileText(String filePath) {
+    public static List<Student> readStudentListFromFile(String path) {
+        List<Student> studentList = new ArrayList<>();
+        File file = new File(path);
         try {
-            File file = new File(filePath);
-            if (!file.exists()) {
-                throw new FileNotFoundException();
-            }
-            BufferedReader bf = new BufferedReader(new FileReader(file));
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
-            int sum = 0;
-            while ((line = bf.readLine()) != null) {
-                System.out.println(line);
-                sum += Integer.parseInt(line);
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] arr = line.split(",");
+                Student student = new Student(arr[0], arr[1], arr[2]);
+                studentList.add(student);
             }
-            bf.close();
-            System.out.println("Sum = "+ sum);
-        } catch (Exception e) {
-            System.err.println("File doesn't exist!");
+            bufferedReader.close();
+            fileReader.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File doesn't exist");
+        } catch (IOException e) {
+            System.out.println("IO Text File Fault");
         }
+        return studentList;
+
     }
 
 }
