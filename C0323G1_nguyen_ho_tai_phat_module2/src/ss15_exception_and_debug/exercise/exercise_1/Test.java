@@ -12,6 +12,10 @@ public class Test {
                     System.out.print("Vui lòng nhập độ dài cạnh a: ");
                     try {
                         a = Float.parseFloat(sc.nextLine());
+                        if (a < 0) {
+                            System.out.println("Người dùng nhập sai!");
+                            continue;
+                        }
                         break;
                     } catch (NumberFormatException e) {
                         System.out.println("Sai Format!");
@@ -22,6 +26,10 @@ public class Test {
                     System.out.print("Vui lòng nhập độ dài cạnh b: ");
                     try {
                         b = Float.parseFloat(sc.nextLine());
+                        if (b < 0) {
+                            System.out.println("Vui lòng nhập sai!");
+                            continue;
+                        }
                         break;
                     } catch (NumberFormatException e) {
                         System.out.println("Sai Format!");
@@ -34,6 +42,10 @@ public class Test {
                     System.out.print("Vui lòng nhập độ dài cạnh c:");
                     try {
                         c = Float.parseFloat(sc.nextLine());
+                        if (c < 0) {
+                            System.out.println("Vui lòng nhập sai!");
+                            continue;
+                        }
                         break;
                     } catch (NumberFormatException e) {
                         System.out.println("Sai Format!");
@@ -52,7 +64,7 @@ public class Test {
     }
 
     public static void checkTriangle(float a, float b, float c) throws IllegalTriangleException {
-        if (a + b < c || b + c < a || a + c < b || a < 0 || b < 0 || c < 0) {
+        if (a + b < c || b + c < a || a + c < b) {
             throw new IllegalTriangleException("Error");
         }
     }
