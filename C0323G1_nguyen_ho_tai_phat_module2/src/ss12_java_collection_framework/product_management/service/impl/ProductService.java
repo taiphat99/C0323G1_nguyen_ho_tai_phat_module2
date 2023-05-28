@@ -5,6 +5,7 @@ import ss12_java_collection_framework.product_management.repository.impl.Product
 import ss12_java_collection_framework.product_management.service.IProductService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 
@@ -16,7 +17,7 @@ public class ProductService implements IProductService {
     public void addProduct() {
         System.out.print("Vui lòng nhập ID sản phẩm mới: ");
         String id = sc.nextLine();
-        Product checkIdProduct = repository.getById(id);
+        Product checkIdProduct = repository.checkIdProduct(id);
         if (checkIdProduct == null) {
             System.out.print("Vui lòng nhập tên sản phẩm mới: ");
             String name = sc.nextLine();
@@ -34,13 +35,12 @@ public class ProductService implements IProductService {
         }
     }
 
-
     @Override
     public void deleteProduct() {
         System.out.println("Vui lòng nhập ID của sản phẩm muốn xoá: ");
         String id = sc.nextLine();
-        Product checkIdProduct = repository.getById(id);
-        if (checkIdProduct == null) {
+        Product checkId = repository.checkIdProduct(id);
+        if (checkId == null) {
             System.out.println("Không tìm thấy sản phẩm có ID: " + id);
         } else {
             System.out.println("Bạn có chắc muốn xoá sản phẩm này không? \n" +
@@ -48,7 +48,7 @@ public class ProductService implements IProductService {
                     "2. Không");
             int confirmOption = Integer.parseInt(sc.nextLine());
             if(confirmOption == 1){
-                    repository.deleteProduct(checkIdProduct);
+                    repository.deleteProduct(checkId);
                     System.out.println("Xoá thành công! ");
             } else {
                 System.out.println("Cảm ơn lòng bao dung của bạn vì đã không xoá sản phẩm =))");
@@ -61,11 +61,11 @@ public class ProductService implements IProductService {
     public void editProduct() {
         System.out.println("Vui lòng nhập ID bạn muốn sửa: ");
         String id = sc.nextLine();
-        Product checkIdProduct = repository.getById(id);
-        if(checkIdProduct == null){
+        Product product = repository.checkIdProduct(id);
+        if(product == null){
             System.out.println("ID không tồn tại! ");
         } else {
-            System.out.println(checkIdProduct);
+            System.out.println(product);
             loop: do {
                 System.out.println("Vui lòng nhập thành phần bạn muốn sửa: \n" +
                         "1. Tên \n" +
@@ -77,22 +77,22 @@ public class ProductService implements IProductService {
                 switch (editOption){
                     case 1:
                         System.out.println("Vui lòng nhập tên mới: ");
-                        checkIdProduct.setName(sc.nextLine());
+                        product.setName(sc.nextLine());
                         break;
                     case 2:
                         System.out.println("Vui lòng nhập giá mới: ");
-                        checkIdProduct.setPrice(Float.parseFloat(sc.nextLine()));
+                        product.setPrice(Float.parseFloat(sc.nextLine()));
                         break;
                     case 3:
                         System.out.println("Vui lòng nhập số lượng mới: ");
-                        checkIdProduct.setQuantity(Integer.parseInt(sc.nextLine()));
+                        product.setQuantity(Integer.parseInt(sc.nextLine()));
                         break;
                     case 4:
                         System.out.println("Vui lòng nhập mô tả mới: ");
-                        checkIdProduct.setDescription(sc.nextLine());
+                        product.setDescription(sc.nextLine());
                         break;
                     case 5:
-                        repository.update(checkIdProduct);
+                        repository.updateProduct(product);
                         break loop;
                 }
             }while(true);
@@ -129,9 +129,11 @@ public class ProductService implements IProductService {
         switch(sortOption){
             case 1:
                 repository.sortUp();
+                System.out.println("Sắp xếp thành công!");
                 break;
             case 2:
                 repository.sortDown();
+                System.out.println("Sắp xếp thành công!");
                 break;
         }
     }

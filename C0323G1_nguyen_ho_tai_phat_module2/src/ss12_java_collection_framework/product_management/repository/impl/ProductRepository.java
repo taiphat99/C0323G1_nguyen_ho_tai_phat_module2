@@ -38,7 +38,7 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Product getById(String id) {
+    public Product checkIdProduct(String id) {
         for (Product product : productList) {
             if (product.getId().equals(id)) {
                 return product;
@@ -90,13 +90,13 @@ public class ProductRepository implements IProductRepository {
         });
     }
 
-    public void update(Product checkIdProduct) {
-        for (Product product : productList) {
-            if (product.getId().equals(checkIdProduct.getId())) {
-                product.setName(checkIdProduct.getName());
-                product.setPrice(checkIdProduct.getPrice());
-                product.setQuantity(checkIdProduct.getQuantity());
-                product.setDescription(checkIdProduct.getDescription());
+    public void updateProduct(Product product) {
+        for (Product p : productList) {
+            if (p.getId().equals(product.getId())) {
+                p.setName(product.getName());
+                p.setPrice(product.getPrice());
+                p.setQuantity(product.getQuantity());
+                p.setDescription(product.getDescription());
             }
         }
     }
