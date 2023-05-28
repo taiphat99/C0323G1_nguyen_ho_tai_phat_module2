@@ -16,32 +16,20 @@ public class CodeGymRepository implements ICodeGymRepository {
     private static final ManipulateFile manipulateFile = new ManipulateFile();
 
     static {
-        Student person1 = new Student("SMS1", "Danny", "12/2/2002", true, "C0323G1", 9.9f);
-        Student person2 = new Student("SMS2", "Louis", "12/2/2002", true, "C0323G1", 9.1f);
-        Student person3 = new Student("SMS3", "Ned", "12/2/2002", true, "C0323G1", 9.3f);
-        Student person4 = new Student("SMS4", "Tony", "12/2/2002", true, "C0323G1", 8.9f);
-        students.add(person1);
-        students.add(person2);
-        students.add(person3);
-        students.add(person4);
-        manipulateFile.writeToFile("src/mvc_exercise_1/data/Students.csv", students);
-        students = manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv");
-
-        Teacher person5 = new Teacher("TMS1", "Jamie", "12/2/2002", false, "Math");
-        Teacher person6 = new Teacher("TMS2", "Gage", "12/2/2002", true, "Geography");
-        Teacher person7 = new Teacher("TMS3", "Kenny", "12/2/2002", false, "Psychology");
-        teachers.add(person5);
-        teachers.add(person6);
-        teachers.add(person7);
-        manipulateFile.writeToFile("src/mvc_exercise_1/data/Teachers.csv", teachers);
-        teachers = manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv");
-        people.addAll(students);
-        people.addAll(teachers);
+        people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv"));
+        people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv"));
     }
 
     @Override
-    public void add(Person person) {
-        people.add(person);
+    public void addStudent(Student student) {
+        students.add(student);
+        manipulateFile.writeToFile("src/mvc_exercise_1/data/Students.csv",students);
+    }
+
+    @Override
+    public void addTeacher(Teacher teacher) {
+        teachers.add(teacher);
+        manipulateFile.writeToFile("src/mvc_exercise_1/data/Teachers.csv", teachers);
     }
 
     @Override
@@ -81,12 +69,23 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public List<Person> displayTeacherList() {
-        return teachers;
+        return manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv");
     }
 
     @Override
     public List<Person> displayStudentList() {
-        return students;
+        return manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv");
+    }
+
+
+    @Override
+    public void updateStudent() {
+
+    }
+
+    @Override
+    public void updateTeacher() {
+
     }
 
 

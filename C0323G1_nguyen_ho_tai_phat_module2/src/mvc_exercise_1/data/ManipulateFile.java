@@ -12,7 +12,7 @@ public class ManipulateFile {
     public void writeToFile(String path, List<Person> personList) {
         File file = new File(path);
         try {
-            FileWriter fileWriter = new FileWriter(file);
+            FileWriter fileWriter = new FileWriter(file,true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (Person person : personList) {
                 bufferedWriter.write(person.getInfoPerson());

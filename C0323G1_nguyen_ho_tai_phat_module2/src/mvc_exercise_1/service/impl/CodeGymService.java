@@ -59,8 +59,9 @@ public class CodeGymService implements ICodeGymService {
             } while (true);
             System.out.println("Vui lòng nhập chuyên môn: ");
             String major = sc.nextLine();
+            System.out.println("Thêm mới thành công!");
             Teacher teacher = new Teacher(id, name, dateOfBirth, gender, major);
-            codeGymRepository.add(teacher);
+            codeGymRepository.addTeacher(teacher);
         }
     }
 
@@ -111,8 +112,9 @@ public class CodeGymService implements ICodeGymService {
                     System.err.println("Điểm không hợp lệ!");
                 }
             } while (true);
+            System.out.println("Thêm mới thành công!");
             Student student = new Student(id, name, dateOfBirth, gender, className, grade);
-            codeGymRepository.add(student);
+            codeGymRepository.addStudent(student);
         }
     }
 
@@ -176,7 +178,7 @@ public class CodeGymService implements ICodeGymService {
 
     @Override
     public void edit() {
-
+    //coming soon =))
     }
 
     @Override
