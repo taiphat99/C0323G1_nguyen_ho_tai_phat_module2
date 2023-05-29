@@ -64,6 +64,9 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public List<Person> displayAll() {
+        people.clear();
+        people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv"));
+        people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv"));
         return people;
     }
 
