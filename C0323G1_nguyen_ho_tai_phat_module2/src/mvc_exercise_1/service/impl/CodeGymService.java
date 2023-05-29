@@ -203,17 +203,17 @@ public class CodeGymService implements ICodeGymService {
                 "3. Tất cả mọi người");
         int optionDisplay = Integer.parseInt(sc.nextLine());
         if (optionDisplay == 1) {
-            List<Person> teacherList = codeGymRepository.displayTeacherList();
+            List<Person> teacherList = codeGymRepository.getTeacherList();
             for (Person t : teacherList) {
                 System.out.println(t);
             }
         } else if (optionDisplay == 2) {
-            List<Person> studentList = codeGymRepository.displayStudentList();
+            List<Person> studentList = codeGymRepository.getStudentList();
             for (Person s : studentList) {
                 System.out.println(s);
             }
         } else if (optionDisplay == 3) {
-            List<Person> personList = codeGymRepository.displayAll();
+            List<Person> personList = codeGymRepository.getAll();
             for (Person p : personList) {
                 System.out.println(p);
             }

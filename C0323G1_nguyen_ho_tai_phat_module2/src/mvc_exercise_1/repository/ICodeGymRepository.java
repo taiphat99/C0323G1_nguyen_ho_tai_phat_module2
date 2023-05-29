@@ -9,7 +9,7 @@ import java.util.List;
 public interface ICodeGymRepository {
     void removeStudent(Person student);
     void removeTeacher(Person teacher);
-    List displayAll();
+    List getAll();
 
     Person checkIdTeacher(String id);
 
@@ -17,9 +17,9 @@ public interface ICodeGymRepository {
 
     List searchByName(String name);
 
-    List<Person> displayTeacherList();
+    List<Person> getTeacherList();
 
-    List<Person> displayStudentList();
+    List<Person> getStudentList();
     void addStudent(Student student);
     void addTeacher(Teacher teacher);
     void updateStudent();

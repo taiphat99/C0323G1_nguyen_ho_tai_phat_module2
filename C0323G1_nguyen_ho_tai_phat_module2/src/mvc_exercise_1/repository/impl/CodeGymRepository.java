@@ -65,8 +65,9 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public List<Person> searchByName(String name) {
+
         List<Person> findingList = new ArrayList<>();
-        for (Person p : people) {
+        for (Person p : getAll()) {
             if (p.getName().toLowerCase().contains(name.toLowerCase())) {
                 findingList.add(p);
             }
@@ -79,19 +80,20 @@ public class CodeGymRepository implements ICodeGymRepository {
     }
 
     @Override
-    public List<Person> displayAll() {
+    public List<Person> getAll() {
+        people.clear();
         people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv"));
         people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv"));
         return people;
     }
 
     @Override
-    public List<Person> displayTeacherList() {
+    public List<Person> getTeacherList() {
         return manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv");
     }
 
     @Override
-    public List<Person> displayStudentList() {
+    public List<Person> getStudentList() {
         return manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv");
     }
 
