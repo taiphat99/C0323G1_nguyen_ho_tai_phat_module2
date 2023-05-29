@@ -2,15 +2,18 @@ package ss17_io_binary_file_and_serialization.exercise.exercise_2;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
         String str = "CÔ ĐƠN TRÊN SOFA | Hồ Ngọc Hà x Tăng Duy Tân | Trung Quân live cover at Soul of The Forest";
         writeToFile("src/ss17_io_binary_file_and_serialization/exercise/exercise_2/OriginalFile.dat",str);
+//        String newStr = readFromFile("src/ss17_io_binary_file_and_serialization/exercise/exercise_2/OriginalFile.dat");
+//        System.out.println(newStr);
         try {
             File originalFile = new File("src/ss17_io_binary_file_and_serialization/exercise/exercise_2/OriginalFile.dat");
             File destinationFile = new File ("src/ss17_io_binary_file_and_serialization/exercise/exercise_2/DestinationFile.dat");
-            Files.copy(destinationFile.toPath(),originalFile.toPath());
+            Files.copy(originalFile.toPath(),destinationFile.toPath());
             System.out.println(readFromFile("src/ss17_io_binary_file_and_serialization/exercise/exercise_2/DestinationFile.dat"));
         } catch (IOException e) {
             System.err.println("Error!");
