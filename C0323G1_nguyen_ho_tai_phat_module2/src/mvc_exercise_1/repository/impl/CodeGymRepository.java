@@ -15,36 +15,52 @@ public class CodeGymRepository implements ICodeGymRepository {
     private static List<Person> teachers = new ArrayList<>();
     private static final ManipulateFile manipulateFile = new ManipulateFile();
 
-    static {
-        people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv"));
-        people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv"));
-    }
-
     @Override
     public void addStudent(Student student) {
+        manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv");
         students.add(student);
-        manipulateFile.writeToFile("src/mvc_exercise_1/data/Students.csv",students);
+        manipulateFile.writeToFile("src/mvc_exercise_1/data/Students.csv", students);
     }
 
     @Override
     public void addTeacher(Teacher teacher) {
+        manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv");
         teachers.add(teacher);
         manipulateFile.writeToFile("src/mvc_exercise_1/data/Teachers.csv", teachers);
     }
 
     @Override
-    public void remove(Person person) {
-        people.remove(person);
+    public void removeStudent(Person student) {
+        students = manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv");
+        students.remove(student);
+        manipulateFile.writeToFile("src/mvc_exercise_1/data/Students.csv", students);
     }
 
     @Override
-    public Person checkIdPerson(String id) {
-        for (Person i : people) {
+    public void removeTeacher(Person teacher) {
+        teachers = manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv");
+        teachers.remove(teacher);
+        manipulateFile.writeToFile("src/mvc_exercise_1/data/Teachers.csv",teachers);
+    }
+
+    @Override
+    public Person checkIdTeacher(String id) {
+        teachers = manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv");
+        for (Person i : teachers) {
             if (i.getId().equals(id)) {
                 return i;
             }
         }
         return null;
+    }
+    @Override
+    public Person checkIdStudent(String id){
+        students = manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv");
+        for (Person i: students){
+            if(i.getId().equals(id)){
+                return i;
+            }
+        }return null;
     }
 
     @Override
@@ -64,7 +80,6 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public List<Person> displayAll() {
-        people.clear();
         people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Teachers.csv"));
         people.addAll(manipulateFile.readFromFile("src/mvc_exercise_1/data/Students.csv"));
         return people;

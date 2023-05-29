@@ -7,9 +7,14 @@ import mvc_exercise_1.model.ext.Teacher;
 import java.util.List;
 
 public interface ICodeGymRepository {
-    void remove(Person person);
+    void removeStudent(Person student);
+    void removeTeacher(Person teacher);
     List displayAll();
-    Person checkIdPerson(String id);
+
+    Person checkIdTeacher(String id);
+
+    Person checkIdStudent(String id);
+
     List searchByName(String name);
 
     List<Person> displayTeacherList();

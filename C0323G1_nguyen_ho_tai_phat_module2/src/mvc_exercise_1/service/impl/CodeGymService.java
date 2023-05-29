@@ -30,7 +30,7 @@ public class CodeGymService implements ICodeGymService {
     public void addTeacher() {
         System.out.println("Vui lòng nhập ID Giảng Viên: ");
         String id = sc.nextLine();
-        if (codeGymRepository.checkIdPerson(id) != null) {
+        if (codeGymRepository.checkIdTeacher(id) != null && codeGymRepository.checkIdStudent(id) != null) {
             System.err.println("ID của Giảng Viên này đã tồn tại!");
         } else {
             System.out.println("Vui lòng nhập Họ và tên: ");
@@ -68,7 +68,7 @@ public class CodeGymService implements ICodeGymService {
     public void addStudent() {
         System.out.println("Vui lòng nhập ID Học Viên: ");
         String id = sc.nextLine();
-        if (codeGymRepository.checkIdPerson(id) != null) {
+        if (codeGymRepository.checkIdTeacher(id) != null && codeGymRepository.checkIdStudent(id) != null) {
             System.err.println("ID của Học viên này đã tồn tại");
         } else {
             System.out.println("vui lòng nhập họ và tên: ");
@@ -120,34 +120,79 @@ public class CodeGymService implements ICodeGymService {
 
     @Override
     public void delete() {
-        System.out.println("Vui lòng nhâp ID muốn xoá: ");
-        String id = sc.nextLine();
-        Person checkPersonExist = codeGymRepository.checkIdPerson(id);
-        if (checkPersonExist == null) {
-            System.err.println("Không tìm thấy ID này!");
-        } else {
-            do {
-                System.out.println("Bạn có chắc muốn xoá ID dưới đây không? \n" +
-                        "1. Có \n" +
-                        "2. Không");
-                System.out.println(codeGymRepository.checkIdPerson(id));
-                try {
-                    int deleteOption = Integer.parseInt(sc.nextLine());
-                    if (deleteOption == 1) {
-                        codeGymRepository.remove(checkPersonExist);
-                        System.out.println("Xoá Thành công!");
-                        break;
-                    } else if (deleteOption == 2) {
-                        System.out.println("Xoá không thành công!");
-                        break;
+        System.out.println("Vui lòng chọn đối tượng muốn xoá: \n" +
+                "1. Giảng Viên \n" +
+                "2. Học Viên");
+        do {
+            try {
+                int deleteOption = Integer.parseInt(sc.nextLine());
+                if (deleteOption == 1) {
+                    System.out.println("Vui lòng nhâp ID muốn xoá: ");
+                    String id = sc.nextLine();
+                    Person checkTeacherExist = codeGymRepository.checkIdTeacher(id);
+                    if (checkTeacherExist == null) {
+                        System.err.println("Không tìm thấy ID này!");
                     } else {
-                        System.err.println("Không hợp lệ!");
+                        do {
+                            System.out.println("Bạn có chắc muốn xoá ID dưới đây không? \n" +
+                                    "1. Có \n" +
+                                    "2. Không");
+                            System.out.println(codeGymRepository.checkIdTeacher(id));
+                            try {
+                                int confirmOption = Integer.parseInt(sc.nextLine());
+                                if (confirmOption == 1) {
+                                    codeGymRepository.removeTeacher(checkTeacherExist);
+                                    System.out.println("Xoá Thành công!");
+                                    break;
+                                } else if (confirmOption == 2) {
+                                    System.out.println("Xoá không thành công!");
+                                    break;
+                                } else {
+                                    System.err.println("Không hợp lệ!");
+                                }
+                            } catch (NumberFormatException n) {
+                                System.err.println("Không hợp lệ");
+                            }
+                        } while (true);
                     }
-                } catch (NumberFormatException n) {
-                    System.err.println("Không hợp lệ");
+                    break;
+                } else if (deleteOption == 2) {
+                    System.out.println("Vui lòng nhâp ID muốn xoá: ");
+                    String id = sc.nextLine();
+                    Person checkStudentExist = codeGymRepository.checkIdStudent(id);
+                    if (checkStudentExist == null) {
+                        System.err.println("Không tìm thấy ID này!");
+                    } else {
+                        do {
+                            System.out.println("Bạn có chắc muốn xoá ID dưới đây không? \n" +
+                                    "1. Có \n" +
+                                    "2. Không");
+                            System.out.println(codeGymRepository.checkIdStudent(id));
+                            try {
+                                int confirmOption = Integer.parseInt(sc.nextLine());
+                                if (confirmOption == 1) {
+                                    codeGymRepository.removeStudent(checkStudentExist);
+                                    System.out.println("Xoá Thành công!");
+                                    break;
+                                } else if (confirmOption == 2) {
+                                    System.out.println("Xoá không thành công!");
+                                    break;
+                                } else {
+                                    System.err.println("Không hợp lệ!");
+                                }
+                            } catch (NumberFormatException n) {
+                                System.err.println("Không hợp lệ");
+                            }
+                        } while (true);
+                    }
+                    break;
+                } else {
+                    System.err.println("Không hợp lệ!");
                 }
-            } while (true);
-        }
+            } catch (NumberFormatException n) {
+                System.err.println("Không hợp lệ!");
+            }
+        } while (true);
     }
 
     @Override
@@ -178,7 +223,7 @@ public class CodeGymService implements ICodeGymService {
 
     @Override
     public void edit() {
-    //coming soon =))
+        //coming soon =))
     }
 
     @Override
