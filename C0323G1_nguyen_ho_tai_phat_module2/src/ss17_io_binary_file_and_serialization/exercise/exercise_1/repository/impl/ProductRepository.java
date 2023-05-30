@@ -32,6 +32,8 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product checkIdProduct(String id) {
+        productList.clear();
+        productList = manipulateFile.readFromFile("src/ss17_io_binary_file_and_serialization/exercise/exercise_1/data/product.dat");
         for (Product product : productList) {
             if (product.getId().equals(id)) {
                 return product;
@@ -42,6 +44,8 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> searchByName(String name) {
+        productList.clear();
+        productList = manipulateFile.readFromFile("src/ss17_io_binary_file_and_serialization/exercise/exercise_1/data/product.dat");
         List<Product> searchingList = new ArrayList<>();
         for (Product p : productList) {
             if (p.getName().toLowerCase().contains(name.toLowerCase())) {

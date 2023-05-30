@@ -77,6 +77,10 @@ public class Product {
                 ", Tên: " + name +
                 ", Giá: " + price +
                 ", Số lượng: " + quantity +
-                ", Mô tả: " + '"'+ description + '"';
+                ", Mô tả: " + '"' + description + '"';
+    }
+
+    public String getInfo() {
+        return getId() + "," + getName() + "," + getPrice() + "," + getQuantity() + "," + getDescription();
     }
 }
