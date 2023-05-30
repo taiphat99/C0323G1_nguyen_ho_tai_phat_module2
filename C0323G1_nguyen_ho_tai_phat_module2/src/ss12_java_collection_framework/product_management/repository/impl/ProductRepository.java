@@ -38,7 +38,7 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Product checkIdProduct(String id) {
+    public Product findById(String id) {
         for (Product product : productList) {
             if (product.getId().equals(id)) {
                 return product;

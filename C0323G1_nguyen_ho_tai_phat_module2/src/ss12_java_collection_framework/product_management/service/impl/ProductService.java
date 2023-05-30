@@ -5,7 +5,6 @@ import ss12_java_collection_framework.product_management.repository.impl.Product
 import ss12_java_collection_framework.product_management.service.IProductService;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 
@@ -17,7 +16,7 @@ public class ProductService implements IProductService {
     public void addProduct() {
         System.out.print("Vui lòng nhập ID sản phẩm mới: ");
         String id = sc.nextLine();
-        Product checkIdProduct = repository.checkIdProduct(id);
+        Product checkIdProduct = repository.findById(id);
         if (checkIdProduct == null) {
             System.out.print("Vui lòng nhập tên sản phẩm mới: ");
             String name = sc.nextLine();
@@ -39,7 +38,7 @@ public class ProductService implements IProductService {
     public void deleteProduct() {
         System.out.println("Vui lòng nhập ID của sản phẩm muốn xoá: ");
         String id = sc.nextLine();
-        Product checkId = repository.checkIdProduct(id);
+        Product checkId = repository.findById(id);
         if (checkId == null) {
             System.out.println("Không tìm thấy sản phẩm có ID: " + id);
         } else {
@@ -61,7 +60,7 @@ public class ProductService implements IProductService {
     public void editProduct() {
         System.out.println("Vui lòng nhập ID bạn muốn sửa: ");
         String id = sc.nextLine();
-        Product product = repository.checkIdProduct(id);
+        Product product = repository.findById(id);
         if(product == null){
             System.out.println("ID không tồn tại! ");
         } else {
