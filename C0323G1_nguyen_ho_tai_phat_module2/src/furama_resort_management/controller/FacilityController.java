@@ -12,7 +12,8 @@ public class FacilityController {
                 "1. Display Facility List\n" +
                 "2. Add New Facility\n" +
                 "3. Display Facility List Maintenance\n" +
-                "4. Return Lobby");
+                "4. Return Lobby\n" +
+                "Enter function please!");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice){
             case 1:

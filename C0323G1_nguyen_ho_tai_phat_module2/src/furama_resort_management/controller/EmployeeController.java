@@ -14,7 +14,8 @@ public class EmployeeController {
                 "1. Display Employee List\n" +
                 "2. Add New Employee\n" +
                 "3. Edit Employee\n" +
-                "4. Return Lobby");
+                "4. Return Lobby\n" +
+                "Enter function please!");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:

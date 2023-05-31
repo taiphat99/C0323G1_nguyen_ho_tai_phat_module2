@@ -46,9 +46,9 @@ public class ProductService implements IProductService {
                     "1. Có \n" +
                     "2. Không");
             int confirmOption = Integer.parseInt(sc.nextLine());
-            if(confirmOption == 1){
-                    repository.deleteProduct(checkId);
-                    System.out.println("Xoá thành công! ");
+            if (confirmOption == 1) {
+                repository.deleteProduct(checkId);
+                System.out.println("Xoá thành công! ");
             } else {
                 System.out.println("Cảm ơn lòng bao dung của bạn vì đã không xoá sản phẩm =))");
             }
@@ -61,11 +61,12 @@ public class ProductService implements IProductService {
         System.out.println("Vui lòng nhập ID bạn muốn sửa: ");
         String id = sc.nextLine();
         Product product = repository.findById(id);
-        if(product == null){
+        if (product == null) {
             System.out.println("ID không tồn tại! ");
         } else {
             System.out.println(product);
-            loop: do {
+            loop:
+            do {
                 System.out.println("Vui lòng nhập thành phần bạn muốn sửa: \n" +
                         "1. Tên \n" +
                         "2. Giá \n" +
@@ -73,7 +74,7 @@ public class ProductService implements IProductService {
                         "4. Mô tả \n" +
                         "5. Cập nhật thông tin và Thoát");
                 int editOption = Integer.parseInt(sc.nextLine());
-                switch (editOption){
+                switch (editOption) {
                     case 1:
                         System.out.println("Vui lòng nhập tên mới: ");
                         product.setName(sc.nextLine());
@@ -94,14 +95,14 @@ public class ProductService implements IProductService {
                         repository.updateProduct(product);
                         break loop;
                 }
-            }while(true);
+            } while (true);
 
         }
     }
 
     @Override
     public void displayProduct() {
-        List <Product> productList = repository.getAll();
+        List<Product> productList = repository.getAll();
         for (Product product : productList) {
             if (product != null) {
                 System.out.println(product);
@@ -114,7 +115,7 @@ public class ProductService implements IProductService {
         System.out.println("Vui lòng nhập tên sản phẩm bạn muốn tìm: ");
         String findingName = sc.nextLine();
         List<Product> newList = repository.searchByName(findingName);
-        for (Product p:newList) {
+        for (Product p : newList) {
             System.out.println(p);
         }
     }
@@ -125,7 +126,7 @@ public class ProductService implements IProductService {
                 "1. Giá tăng dần \n" +
                 "2. Giá giảm dần ");
         int sortOption = Integer.parseInt(sc.nextLine());
-        switch(sortOption){
+        switch (sortOption) {
             case 1:
                 repository.sortUp();
                 System.out.println("Sắp xếp thành công!");

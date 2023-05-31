@@ -26,12 +26,13 @@ public class EmployeeRepository implements IEmployeeRepository {
     public void add(Employee employee) {
         List<String> employeeList = new ArrayList<>();
         employeeList.add(getInfo(employee));
-        ManipulateFile.writeToFile(EMPLOYEE_PATH, employeeList,true);
+        ManipulateFile.writeToFile(EMPLOYEE_PATH, employeeList, true);
     }
-    public Employee findById(String id){
+
+    public Employee findById(String id) {
         employeeList = getAll();
-        for (Employee e: employeeList) {
-            if(e.getId().equals(id)){
+        for (Employee e : employeeList) {
+            if (e.getId().equals(id)) {
                 return e;
             }
         }
@@ -40,5 +41,27 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     public String getInfo(Employee employee) {
         return employee.getId() + "," + employee.getName() + "," + employee.getDateOfBirth() + "," + employee.isGender() + "," + employee.getIdentityId() + "," + employee.getPhoneNumber() + "," + employee.getEmail() + "," + employee.getLevel() + "," + employee.getRole() + "," + employee.getSalary();
+    }
+
+    public void updateEmployee(Employee employee) {
+        employeeList = getAll();
+        List<String> employees = new ArrayList<>();
+        for (Employee e : employeeList) {
+            if (e.getId().equals(employee.getId())) {
+                e.setName(employee.getName());
+                e.setDateOfBirth(employee.getDateOfBirth());
+                e.setGender(employee.isGender());
+                e.setIdentityId(employee.getIdentityId());
+                e.setPhoneNumber(employee.getPhoneNumber());
+                e.setEmail(employee.getEmail());
+                e.setLevel(employee.getLevel());
+                e.setRole(employee.getRole());
+                e.setSalary(employee.getSalary());
+            }
+        }
+        for (Employee object : employeeList) {
+            employees.add(getInfo(object));
+        }
+        ManipulateFile.writeToFile(EMPLOYEE_PATH, employees, false);
     }
 }

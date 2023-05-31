@@ -11,7 +11,8 @@ public class CustomerController {
                 "1. Display Customer List\n" +
                 "2. Add New Customer\n" +
                 "3. Edit Customer\n" +
-                "4. Return Lobby");
+                "4. Return Lobby\n" +
+                "Enter function please!");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice){
             case 1:

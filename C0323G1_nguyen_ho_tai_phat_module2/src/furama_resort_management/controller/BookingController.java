@@ -13,7 +13,8 @@ public class BookingController {
                 "3. Create New Contract\n" +
                 "4. Display Contract List\n" +
                 "5. Edit Contract\n" +
-                "6. Return Lobby");
+                "6. Return Lobby\n" +
+                "Enter function please!");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:

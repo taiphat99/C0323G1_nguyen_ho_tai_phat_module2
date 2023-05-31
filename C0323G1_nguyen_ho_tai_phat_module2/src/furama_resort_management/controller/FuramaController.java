@@ -20,7 +20,8 @@ public class FuramaController {
                     "3. Facility Management\n" +
                     "4. Booking Management\n" +
                     "5. Promotion Management\n" +
-                    "6. Exit");
+                    "6. Exit\n" +
+                    "Enter function please!");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:

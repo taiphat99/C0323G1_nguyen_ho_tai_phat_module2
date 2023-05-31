@@ -10,7 +10,8 @@ public class PromotionController {
         System.out.println("-------------Promotion Management--------------\n" +
                 "1. Display Customer List use Service\n" +
                 "2. Display Customer List get Voucher\n" +
-                "3. Return Lobby");
+                "3. Return Lobby\n" +
+                "Enter function please!");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:
