@@ -1,4 +1,7 @@
 package furama_resort_management.service.person.impl;
 
-public class CustomerService {
+import furama_resort_management.service.person.ICustomerService;
+
+public class CustomerService implements ICustomerService {
+
 }

@@ -1,9 +1,12 @@
 package furama_resort_management.controller;
 
+import furama_resort_management.service.person.impl.EmployeeService;
+
 import java.util.Scanner;
 
 public class EmployeeController {
     Scanner sc = new Scanner(System.in);
+    EmployeeService employeeService = new EmployeeService();
 
     public void menu() {
         System.out.println("-----------------------------------------------\n");
@@ -15,10 +18,13 @@ public class EmployeeController {
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:
+                employeeService.displayAll();
                 break;
             case 2:
+                employeeService.add();
                 break;
             case 3:
+                employeeService.edit();
                 break;
             case 4:
                 break;
