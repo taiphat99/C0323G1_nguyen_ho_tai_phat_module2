@@ -2,7 +2,7 @@ package furama_resort_management.repository.person.impl;
 
 import furama_resort_management.model.person.impl.Employee;
 import furama_resort_management.repository.person.IEmployeeRepository;
-import furama_resort_management.utils.manipulate_file.ManipulateFile;
+import furama_resort_management.common.manipulate_file.ManipulateFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     private static List<Employee> employeeList = new ArrayList<>();
     private static final String EMPLOYEE_PATH = "src/furama_resort_management/data/Employee.csv";
 
+    @Override
     public List<Employee> getAll() {
         List<String> stringList = ManipulateFile.readFromFile(EMPLOYEE_PATH);
         employeeList.clear();
@@ -23,12 +24,14 @@ public class EmployeeRepository implements IEmployeeRepository {
         return employeeList;
     }
 
+    @Override
     public void add(Employee employee) {
         List<String> employeeList = new ArrayList<>();
         employeeList.add(getInfo(employee));
         ManipulateFile.writeToFile(EMPLOYEE_PATH, employeeList, true);
     }
 
+    @Override
     public Employee findById(String id) {
         employeeList = getAll();
         for (Employee e : employeeList) {
@@ -39,10 +42,24 @@ public class EmployeeRepository implements IEmployeeRepository {
         return null;
     }
 
+    @Override
+    public List<Employee> findByName(String name) {
+        employeeList = getAll();
+        List<Employee> findingList = new ArrayList<>();
+        for (Employee e : employeeList) {
+            if (e.getName().toLowerCase().contains(name.toLowerCase())) {
+                findingList.add(e);
+            }
+        }
+        return findingList;
+    }
+
+    @Override
     public String getInfo(Employee employee) {
         return employee.getId() + "," + employee.getName() + "," + employee.getDateOfBirth() + "," + employee.isGender() + "," + employee.getIdentityId() + "," + employee.getPhoneNumber() + "," + employee.getEmail() + "," + employee.getLevel() + "," + employee.getRole() + "," + employee.getSalary();
     }
 
+    @Override
     public void updateEmployee(Employee employee) {
         employeeList = getAll();
         List<String> employees = new ArrayList<>();
@@ -61,6 +78,17 @@ public class EmployeeRepository implements IEmployeeRepository {
         }
         for (Employee object : employeeList) {
             employees.add(getInfo(object));
+        }
+        ManipulateFile.writeToFile(EMPLOYEE_PATH, employees, false);
+    }
+
+    @Override
+    public void remove(Employee employee) {
+        List<String> employees = new ArrayList<>();
+        employeeList = getAll();
+        employeeList.remove(employee);
+        for (Employee e : employeeList) {
+            employees.add(getInfo(e));
         }
         ManipulateFile.writeToFile(EMPLOYEE_PATH, employees, false);
     }

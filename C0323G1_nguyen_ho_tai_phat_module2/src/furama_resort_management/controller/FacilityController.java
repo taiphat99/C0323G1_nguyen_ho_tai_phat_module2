@@ -11,8 +11,9 @@ public class FacilityController {
         System.out.println("---------------Facility Management-------------\n" +
                 "1. Display Facility List\n" +
                 "2. Add New Facility\n" +
-                "3. Display Facility List Maintenance\n" +
-                "4. Return Lobby\n" +
+                "3. Delete Facility\n" +
+                "4. Display Facility List Maintenance\n" +
+                "5. Return Lobby\n" +
                 "Enter function please!");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice){
@@ -24,9 +25,8 @@ public class FacilityController {
                 break;
             case 4:
                 break;
+            case 5:
+                break;
         }
-
-
-
     }
 }

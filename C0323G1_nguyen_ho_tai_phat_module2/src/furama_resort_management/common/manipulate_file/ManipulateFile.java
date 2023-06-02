@@ -1,4 +1,4 @@
-package furama_resort_management.utils.manipulate_file;
+package furama_resort_management.common.manipulate_file;
 
 
 import java.io.*;

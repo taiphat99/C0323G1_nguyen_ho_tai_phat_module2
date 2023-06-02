@@ -6,4 +6,8 @@ public interface IEmployeeService {
     void add();
 
     void edit();
+
+    void remove();
+
+    void find();
 }

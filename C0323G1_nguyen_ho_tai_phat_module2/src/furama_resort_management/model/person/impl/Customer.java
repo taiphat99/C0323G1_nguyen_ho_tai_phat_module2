@@ -18,10 +18,6 @@ public class Customer extends Person {
                 ", Address:" + address;
     }
 
-    public Customer(String id, String name, String dateOfBirth, boolean gender, String identityId, String phoneNumber, String email) {
-        super(id, name, dateOfBirth, gender, identityId, phoneNumber, email);
-    }
-
     @Override
     public boolean equals(Object o) {
         return super.equals(o);

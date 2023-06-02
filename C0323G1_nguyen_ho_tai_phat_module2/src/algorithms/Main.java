@@ -1,29 +1,17 @@
 package algorithms;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-       int[] a = {-1, 150, 190, 170, -1, -1, 160, 180};
-        System.out.println(Arrays.toString(solution(a)));
-
-    }
-    static int[] solution (int[] a){
-        int min;
-        int temp;
-        for (int i = 0; i < a.length - 1; i++) {
-            min = i;
-            for (int j = i + 1; j < a.length; j++) {
-                if (a[min] > a[j] && a[min] != -1 && a[j]!= -1) {
-                    min = j;
-                }
-            }
-            if (min != i) {
-                temp = a[i];
-                a[i] = a[min];
-                a[min] = temp;
-            }
+        // yyyy/MM/dd pattern
+        LocalDate localDate1 = LocalDate.parse("1999-06-01");
+        LocalDate localDate2 = LocalDate.now();
+        System.out.println(localDate1); // 2020-05-12
+        System.out.println(localDate2);
+        System.out.println(Period.between(localDate1,localDate2).getYears());
         }
-        return a;
-    }
 }

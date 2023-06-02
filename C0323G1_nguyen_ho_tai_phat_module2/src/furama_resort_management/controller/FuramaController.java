@@ -22,28 +22,32 @@ public class FuramaController {
                     "5. Promotion Management\n" +
                     "6. Exit\n" +
                     "Enter function please!");
-            int choice = Integer.parseInt(sc.nextLine());
-            switch (choice) {
-                case 1:
-                    employeeController.menu();
-                    break;
-                case 2:
-                    customerController.menu();
-                    break;
-                case 3:
-                    facilityController.menu();
-                    break;
-                case 4:
-                    bookingController.menu();
-                    break;
-                case 5:
-                    promotionController.menu();
-                    break;
-                case 6:
-                    System.out.println("See You Again!");
-                    System.exit(0);
+            try {
+                int choice = Integer.parseInt(sc.nextLine());
+                switch (choice) {
+                    case 1:
+                        employeeController.menu();
+                        break;
+                    case 2:
+                        customerController.menu();
+                        break;
+                    case 3:
+                        facilityController.menu();
+                        break;
+                    case 4:
+                        bookingController.menu();
+                        break;
+                    case 5:
+                        promotionController.menu();
+                        break;
+                    case 6:
+                        System.out.println("See You Again!");
+                        System.exit(0);
+                }
+            } catch (NumberFormatException n) {
+                System.err.println("Format Error!");
             }
         }
-        while (true) ;
+        while (true);
     }
 }
