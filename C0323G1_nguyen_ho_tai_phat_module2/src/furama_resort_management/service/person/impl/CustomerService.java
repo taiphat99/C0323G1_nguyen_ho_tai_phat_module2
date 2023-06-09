@@ -25,17 +25,19 @@ public class CustomerService implements ICustomerService {
     public void add() {
         //String id, String name, String dateOfBirth, boolean gender, String identityId,
         // String phoneNumber, String email,String rank,String address
-        String id;
-        do {
-            System.out.println("Enter new customer's ID (KH-YYYY, Y is a number 0-9, Example: KH-1234,KH-8888):");
-            id = sc.nextLine();
-            if (Regex.validate(id, Regex.CUSTOMER_ID_REGEX)) {
-                break;
-            } else {
-                System.err.println("Invalid ID!");
-            }
-        } while (true);
-
+        boolean flag = true;
+        String id = null;
+        if (flag) {
+            do {
+                System.out.println("Enter new customer's ID (KH-YYYY, Y is a number 0-9, Example: KH-1234,KH-8888):");
+                id = sc.nextLine();
+                if (Regex.validate(id, Regex.CUSTOMER_ID_REGEX)) {
+                    break;
+                } else {
+                    System.err.println("Invalid ID!");
+                }
+            } while (true);
+        }
         if (customerRepository.findById(id) != null) {
             System.out.println("This ID existed already!");
         } else {

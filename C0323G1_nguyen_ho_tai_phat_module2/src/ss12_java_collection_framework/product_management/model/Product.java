@@ -2,7 +2,7 @@ package ss12_java_collection_framework.product_management.model;
 
 import java.util.Objects;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private String id;
     private String name;
     private float price;
@@ -82,5 +82,10 @@ public class Product {
 
     public String getInfo() {
         return getId() + "," + getName() + "," + getPrice() + "," + getQuantity() + "," + getDescription();
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return (int) (this.getPrice() - o.getPrice());
     }
 }

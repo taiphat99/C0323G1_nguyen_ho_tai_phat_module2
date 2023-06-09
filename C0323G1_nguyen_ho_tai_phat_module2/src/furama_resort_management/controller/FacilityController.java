@@ -6,8 +6,8 @@ import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
 
 public class FacilityController {
-    private static Scanner sc = new Scanner(System.in);
-    private static FacilityService facilityService = new FacilityService();
+    private static final Scanner sc = new Scanner(System.in);
+    private static final FacilityService facilityService = new FacilityService();
 
     public void menu(){
         System.out.println("-----------------------------------------------\n");

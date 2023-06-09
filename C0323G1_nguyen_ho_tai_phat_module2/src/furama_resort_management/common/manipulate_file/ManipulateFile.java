@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManipulateFile {
+
+
     public static List<String> readFromFile(String path) {
         List<String> stringList = new ArrayList<>();
         try {

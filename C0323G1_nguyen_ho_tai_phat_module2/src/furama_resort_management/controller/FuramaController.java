@@ -4,12 +4,12 @@ package furama_resort_management.controller;
 import java.util.Scanner;
 
 public class FuramaController {
-    private final Scanner sc = new Scanner(System.in);
-    private final BookingController bookingController = new BookingController();
-    private final CustomerController customerController = new CustomerController();
-    private final EmployeeController employeeController = new EmployeeController();
-    private final FacilityController facilityController = new FacilityController();
-    private final PromotionController promotionController = new PromotionController();
+    private static final Scanner sc = new Scanner(System.in);
+    private static final BookingController bookingController = new BookingController();
+    private static final CustomerController customerController = new CustomerController();
+    private static final EmployeeController employeeController = new EmployeeController();
+    private static final FacilityController facilityController = new FacilityController();
+    private static final PromotionController promotionController = new PromotionController();
 
     public void menu() {
         do {

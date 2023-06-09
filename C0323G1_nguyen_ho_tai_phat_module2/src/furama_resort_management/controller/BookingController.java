@@ -1,9 +1,13 @@
 package furama_resort_management.controller;
 
+import furama_resort_management.service.booking.IBookingService;
+import furama_resort_management.service.booking.impl.BookingService;
+
 import java.util.Scanner;
 
 public class BookingController {
-    Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
+    private static final IBookingService bookingService = new BookingService();
 
     public void menu() {
         System.out.println("-----------------------------------------------\n");
@@ -18,14 +22,19 @@ public class BookingController {
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:
+                bookingService.addBooking();
                 break;
             case 2:
+                bookingService.displayBooking();
                 break;
             case 3:
+                bookingService.createContract();
                 break;
             case 4:
+                bookingService.displayContract();
                 break;
             case 5:
+                bookingService.editContract();
                 break;
             case 6:
                 break;
